@@ -3,14 +3,14 @@
 #include "cstdlib"
 
 int test1(){
-    Quadtree Qtree(-500000,-500000,1000000,1000000);
-    Point *arr = new Point[500000];
+    Quadtree Qtree(-100000,-100000,100000,100000);
+    Point *arr = new Point[3000000];
      double x, y;
-    for(int i=0;i<500000; i++){
+    for(int i=0;i<3000000; i++){
         arr[i].x = (double)rand();
         arr[i].y = (double)rand();
     }
-    for(int i=0;i<500000; i++){
+    for(int i=0;i<3000000; i++){
         if(!Qtree.SearchInTree(arr[i])){
             Qtree.InsertInTree(arr[i]);
 
@@ -22,14 +22,14 @@ int test1(){
     };
 
     int k=0;
-    for(int i=0;i<500000; i++){
+    for(int i=0;i<3000000; i++){
         if(arr[i].x <= 25000 && arr[i].x >= -25000 && arr[i].y <= 25000 && arr[i].y >= -25000){
             k++;
         }
     }
     Point *answer = new Point[k];
     int j =0;
-    for(int i=0;i<500000 && j<k; i++){
+    for(int i=0;i<3000000 && j<k; i++){
         if(arr[i].x <= 25000 && arr[i].x >= -25000 && arr[i].y <= 25000 && arr[i].y >= -25000){
             answer[j] = arr[i];
             j++;
