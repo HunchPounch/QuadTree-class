@@ -298,3 +298,53 @@ int Quadtree::AmountOfPoints(Rectangle box){
     n = l.getlen();
     return n;
 }
+
+Quadtree::~Quadtree(){
+    Point point;
+    double x,y;
+    CList l = this->root->GetRangeInNode(Rectangle(this->root->bounds->x,this->root->bounds->y,this->root->bounds->w,this->root->bounds->h));
+    if(l.getlen() == 0){
+        x=y;
+    }
+    else{
+        l.GetCur(x,y);
+        point.x = x;
+        point.y = y;
+        this->root->DeletePointInNode(point);
+        while(l.GoToNext()==0){
+            l.GetCur(x,y);
+            point.x = x;
+            point.y = y;
+            this->root->DeletePointInNode(point);
+        }
+    }
+    this->root->DeleteNode();
+
+}
+
+
+void QuadNode::DeleteNode(){
+
+    if(this->isLeaf()){
+        delete this->bounds;
+        return;
+    }
+
+    if(this->NW->isLeaf()){
+        delete this->NW->bounds;
+        delete this->NE->bounds;
+        delete this->SW->bounds;
+        delete this->SE->bounds;
+        delete this->NW;
+        delete this->NE;
+        delete this->SW;
+        delete this->SE;
+    }
+    else{
+        this->NW->DeleteNode();
+        this->NE->DeleteNode();
+        this->SW->DeleteNode();
+        this->SE->DeleteNode();
+    }
+
+}

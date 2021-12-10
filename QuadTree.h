@@ -51,6 +51,7 @@ public:
     bool SearchInNode(Point point);
     bool DeletePointInNode(Point point);
     CList GetRangeInNode(Rectangle neighborhood);
+    void DeleteNode();
 };
 
 class Quadtree{
@@ -61,6 +62,7 @@ public:
     Quadtree(double x, double y, double w, double h){
         this->root = new QuadNode(x, y, w, h);
     }
+    ~Quadtree();
 
     bool SearchInTree(Point point);
     bool InsertInTree(Point point);
