@@ -62,7 +62,7 @@ public:
     Quadtree(double x, double y, double w, double h){
         this->root = new QuadNode(x, y, w, h);
     }
-    ~Quadtree();
+
 
     bool SearchInTree(Point point);
     bool InsertInTree(Point point);
