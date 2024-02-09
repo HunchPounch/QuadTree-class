@@ -12,6 +12,6 @@ Quadtree - is a space partitioning data structure. Its main advantage over other
   5. Getting points in a given range
   6. Checking the existence of a point in the tree
 
-
+MergeSort and classical LinkedList were also implemented in the project
 
 The data structure is implemented in c++
