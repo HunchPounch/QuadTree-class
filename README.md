@@ -1,5 +1,6 @@
 # QuadTree
 An implementation of a quadtree is presented
+
 Quadtree - is a space partitioning data structure. Its main advantage over other data structures is its adaptability. It provides good performance in insertion, deletion and search. That is, we can use this tree in a dynamic context where data changes frequently.
 
   ![tree](screenshots/tree.png)
